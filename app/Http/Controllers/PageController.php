@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Movie;
+
 class PageController extends Controller
 {
     //
@@ -9,9 +11,10 @@ class PageController extends Controller
     public function index()
     {
         # SELECT * FROM movies
-        ddd(Movie::all());
+        #ddd(Movie::all());
 
-        return view('home');
+        $movies = Movie::all();
+        return view('home', compact('movies'));
 
     }
 }
